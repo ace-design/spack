@@ -2,6 +2,8 @@
 # Spack Project Developers. See the top-level COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
+
+import inspect
 """
 Spack allows very fine-grained control over how packages are installed and
 over how they are built and configured.  To make this easy, it has its own
@@ -2995,6 +2997,17 @@ class Spec:
                 if a list of names activate them for the packages in the list,
                 if True activate 'test' dependencies for all packages.
         """
+
+        print("---------------------------------------")
+        print(f"TPWOE3: concretization helper \nfile: {__file__}")
+        # print(inspect.stack()[0][3])
+        #Note inspect.stack is performance heavy
+
+        print(f"\nfunction: {inspect.currentframe().f_code.co_name}")
+        print(f"\ncaller: {inspect.stack()[1][3]}")
+        print("---------------------------------------")
+
+
         if spack.config.get("config:concretizer", "clingo") == "clingo":
             self._new_concretize(tests)
         else:

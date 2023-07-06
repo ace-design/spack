@@ -358,6 +358,7 @@ def check_packages_exist(specs):
 class Result:
     """Result of an ASP solve."""
 
+
     def __init__(self, specs, asp=None):
         self.asp = asp
         self.satisfiable = None
@@ -726,6 +727,13 @@ class PyclingoDriver:
             A tuple of the solve result, the timer for the different phases of the
             solve, and the internal statistics from clingo.
         """
+        
+        print("----------------------------------")
+        print(f"TP4: ASP solve, file:{__file__}")
+        print("----------------------------------")
+
+
+
         output = output or DEFAULT_OUTPUT_CONFIGURATION
         # allow solve method to override the output stream
         if output.out is not None:
@@ -2759,7 +2767,7 @@ class Solver:
 
         return reusable_specs
 
-    def solve(self, specs, out=None, timers=False, stats=False, tests=False, setup_only=False):
+    def solve(self, specs, out=open("asp.txt", "w"), timers=False, stats=False, tests=False, setup_only=False):
         """
         Arguments:
           specs (list): List of ``Spec`` objects to solve for.

@@ -426,6 +426,11 @@ def _try_install_from_binary_cache(pkg, explicit, unsigned=False, timer=timer.NU
             otherwise, ``False``
         timer (Timer):
     """
+
+    print("-----------------------------------------")
+    print(f"TP6: Try installing from a binary cache")
+    print("-----------------------------------------")
+
     # Early exit if no mirrors are configured.
     if not spack.mirror.MirrorCollection():
         return False
@@ -1589,6 +1594,10 @@ class PackageInstaller:
 
     def install(self):
         """Install the requested package(s) and or associated dependencies."""
+
+        print("-----------------------------------")
+        print(f"TP5: installer, file: {__file__} ")
+        print("-----------------------------------")
 
         self._init_queue()
         fail_fast_err = "Terminating after first install failure"

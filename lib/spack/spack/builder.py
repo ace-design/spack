@@ -58,8 +58,10 @@ def create(pkg):
     Args:
          pkg (spack.package_base.PackageBase): package for which we want the builder
     """
+
     if id(pkg) not in _BUILDERS:
         _BUILDERS[id(pkg)] = _create(pkg)
+    # print(f"Buildtool: {_BUILDERS[id(pkg)]}\n")
     return _BUILDERS[id(pkg)]
 
 
@@ -424,6 +426,9 @@ class InstallationPhase:
         return msg.format(self.builder, self.name)
 
     def execute(self):
+
+        print("TP8: Execute Builder")
+        print("---------------------")
         pkg = self.builder.pkg
         self._on_phase_start(pkg)
 

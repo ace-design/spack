@@ -1149,6 +1149,11 @@ def start_build_process(pkg, function, kwargs):
     For more information on `multiprocessing` child process creation
     mechanisms, see https://docs.python.org/3/library/multiprocessing.html#contexts-and-start-methods
     """
+
+    print("------------------------------------")
+    print(f"TP7: setup build environment before calling install() on each dep of a package, file: {__file__}")
+    print("------------------------------------")
+
     parent_pipe, child_pipe = multiprocessing.Pipe()
     input_multiprocess_fd = None
     jobserver_fd1 = None

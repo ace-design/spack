@@ -202,6 +202,10 @@ def parse_specs(args, **kwargs):
     """Convenience function for parsing arguments from specs.  Handles common
     exceptions and dies if there are errors.
     """
+    print("-------------------------------------------------")
+    print(f"TP2: parse args from specs, file: {__file__}")
+    print("--------------------------------------------------")
+
     concretize = kwargs.get("concretize", False)
     normalize = kwargs.get("normalize", False)
     tests = kwargs.get("tests", False)

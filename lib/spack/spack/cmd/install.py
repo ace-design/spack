@@ -328,6 +328,13 @@ def _die_require_env():
 
 def install(parser, args):
     # TODO: unify args.verbose?
+    print("-------------------------------------")
+    import inspect
+    print(f"TP1: Entry point of `spack install` \n\nfile: {__file__}")
+    print(f"\nfunction: {inspect.currentframe().f_code.co_name}")
+    print(f"\ncaller: {inspect.stack()[1][3]}")
+    print("-------------------------------------")
+
     tty.set_verbose(args.verbose or args.install_verbose)
 
     if args.help_cdash:
