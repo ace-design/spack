@@ -728,9 +728,13 @@ class PyclingoDriver:
             solve, and the internal statistics from clingo.
         """
         
-        print("----------------------------------")
-        print(f"TP4: ASP solve, file:{__file__}")
-        print("----------------------------------")
+        
+        print(f"TP4: ASP solve, \nfile:{__file__}")
+        import inspect
+        print(f"\ncurrent_functionname: {inspect.currentframe().f_code.co_name}")
+        print(f"\ncaller_methodname: {inspect.stack()[1][3]}")
+        print(f"caller_filename:{inspect.stack()[1][1]}")
+        print("----------------------------------------")
 
 
 

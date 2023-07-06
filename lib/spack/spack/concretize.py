@@ -738,6 +738,14 @@ def concretize_specs_together(*abstract_specs, **kwargs):
     """
     if spack.config.get("config:concretizer", "clingo") == "original":
         return _concretize_specs_together_original(*abstract_specs, **kwargs)
+
+    print(f"TPWE2: concretizes specs together \nfile: {__file__}")
+    # print(_concretize_specs_together_new(*abstract_specs, **kwargs))
+    import inspect
+    print(f"\ncurrent_functionname: {inspect.currentframe().f_code.co_name}")
+    print(f"\ncaller_methodname: {inspect.stack()[1][3]}")
+    print(f"caller_filename:{inspect.stack()[1][1]}")
+    print("----------------------------------------")
     return _concretize_specs_together_new(*abstract_specs, **kwargs)
 
 

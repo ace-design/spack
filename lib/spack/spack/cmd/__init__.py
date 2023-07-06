@@ -202,9 +202,12 @@ def parse_specs(args, **kwargs):
     """Convenience function for parsing arguments from specs.  Handles common
     exceptions and dies if there are errors.
     """
-    print("-------------------------------------------------")
-    print(f"TP2: parse args from specs, file: {__file__}")
-    print("--------------------------------------------------")
+    print(f"TP2: parse args from specs, \nfile: {__file__}")
+    import inspect
+    print(f"\ncurrent_functionname: {inspect.currentframe().f_code.co_name}")
+    print(f"\ncaller_methodname: {inspect.stack()[1][3]}")
+    print(f"caller_filename:{inspect.stack()[1][1]}")
+    print("----------------------------------------")
 
     concretize = kwargs.get("concretize", False)
     normalize = kwargs.get("normalize", False)

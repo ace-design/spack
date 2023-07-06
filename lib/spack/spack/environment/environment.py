@@ -1310,6 +1310,15 @@ class Environment:
         return spec.name in self.dev_specs
 
     def concretize(self, force=False, tests=False):
+
+        print(f"TPWE1: concretize user_specs in the present env \n\nfile: {__file__}")
+        print(f"Enumerates different concretization strategies\n")
+        import inspect
+        print(f"\ncurrent_functionname: {inspect.currentframe().f_code.co_name}")
+        print(f"\ncaller_methodname: {inspect.stack()[1][3]}")
+        print(f"caller_filename:{inspect.stack()[1][1]}")
+        print("----------------------------------------")
+
         """Concretize user_specs in this environment.
 
         Only concretizes specs that haven't been concretized yet unless

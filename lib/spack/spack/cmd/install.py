@@ -331,9 +331,12 @@ def install(parser, args):
     print("-------------------------------------")
     import inspect
     print(f"TP1: Entry point of `spack install` \n\nfile: {__file__}")
-    print(f"\nfunction: {inspect.currentframe().f_code.co_name}")
-    print(f"\ncaller: {inspect.stack()[1][3]}")
-    print("-------------------------------------")
+    import inspect
+    print(f"\ncurrent_functionname: {inspect.currentframe().f_code.co_name}")
+    print(f"\ncaller_methodname: {inspect.stack()[1][3]}")
+    print(f"caller_filename:{inspect.stack()[1][1]}")
+    print("----------------------------------------")
+
 
     tty.set_verbose(args.verbose or args.install_verbose)
 
@@ -406,6 +409,13 @@ def _maybe_add_and_concretize(args, env, specs):
 
 def install_with_active_env(env: ev.Environment, args, install_kwargs, reporter_factory):
     specs = spack.cmd.parse_specs(args.spec)
+
+    print(f"TPWE0:install with active environment \nfile: {__file__}")
+    import inspect
+    print(f"\ncurrent_functionname: {inspect.currentframe().f_code.co_name}")
+    print(f"\ncaller_methodname: {inspect.stack()[1][3]}")
+    print(f"caller_filename:{inspect.stack()[1][1]}")
+    print("----------------------------------------")
 
     # The following two commands are equivalent:
     # 1. `spack install --add x y z`
