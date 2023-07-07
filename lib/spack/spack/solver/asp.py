@@ -556,6 +556,13 @@ def _normalize_packages_yaml(packages_yaml):
 def bootstrap_clingo():
     global clingo, ASTType, parse_files
 
+    print("TP3.2: Bootstrap Clingo")
+    import inspect
+    print(f"\ncurrent_functionname: {inspect.currentframe().f_code.co_name}")
+    print(f"\ncaller_methodname: {inspect.stack()[1][3]}")
+    print(f"caller_filename:{inspect.stack()[1][1]}")
+    print("----------------------------------------")
+
     if not clingo:
         import spack.bootstrap
 
@@ -664,6 +671,8 @@ class PyclingoDriver:
             cores (bool): whether to generate unsatisfiable cores for better
                 error reporting.
         """
+        print("TP3.1: Driver for python clingo interface")
+        print("----------------------------------------")
         bootstrap_clingo()
 
         self.out = llnl.util.lang.Devnull()
@@ -728,16 +737,6 @@ class PyclingoDriver:
             solve, and the internal statistics from clingo.
         """
         
-        
-        print(f"TP4: ASP solve, \nfile:{__file__}")
-        import inspect
-        print(f"\ncurrent_functionname: {inspect.currentframe().f_code.co_name}")
-        print(f"\ncaller_methodname: {inspect.stack()[1][3]}")
-        print(f"caller_filename:{inspect.stack()[1][1]}")
-        print("----------------------------------------")
-
-
-
         output = output or DEFAULT_OUTPUT_CONFIGURATION
         # allow solve method to override the output stream
         if output.out is not None:
@@ -2783,6 +2782,14 @@ class Solver:
             packages (defaults to False: do not concretize test dependencies).
           setup_only (bool): if True, stop after setup and don't solve (default False).
         """
+
+        print(f"TP4: Main ASP solver, \nfile:{__file__}")
+        import inspect
+        print(f"\ncurrent_functionname: {inspect.currentframe().f_code.co_name}")
+        print(f"\ncaller_methodname: {inspect.stack()[1][3]}")
+        print(f"caller_filename:{inspect.stack()[1][1]}")
+        print("----------------------------------------")
+
         # Check upfront that the variants are admissible
         reusable_specs = self._check_input_and_extract_concrete_specs(specs)
         reusable_specs.extend(self._reusable_specs(specs))
